@@ -1,0 +1,30 @@
+name: Build Operating System
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Build Docker image for build environment
+      run: docker build buildenv -t os-buildenv
+
+    - name: Run development environment and build OS
+      run: |
+        docker run --rm -v $(pwd):/root/env os-buildenv make build-x86_64
+
+    - name: Archive build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifacts
+        path: dist/x86_64/kernel.iso

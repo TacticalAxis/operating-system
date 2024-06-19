@@ -12,8 +12,10 @@ docker build buildenv -t os-buildenv
 docker run --rm -it -v $(pwd):/root/env os-buildenv
 ```
 
-```powershell
-docker run --rm -it -v %cd%:/root/env os-buildenv
+## Building the OS in the development environment
+
+```bash
+make build-x86_64
 ```
 
 ## Running the OS
