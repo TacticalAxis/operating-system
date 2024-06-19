@@ -1,4 +1,6 @@
-# Commands
+# Operating System
+
+[![Build Operating System](https://github.com/TacticalAxis/operating-system/actions/workflows/build.yml/badge.svg)](https://github.com/TacticalAxis/operating-system/actions/workflows/build.yml)
 
 ## Creating development environment
 
