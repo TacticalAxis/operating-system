@@ -14,7 +14,7 @@ start:
     ; setup page tables
     call setup_page_tables
     ; enable paging
-    call enable_paging
+    ; call enable_paging
 
     ; print "OK"
     ; mov dword [0x8000] 0x2f412f482f542f412f4e
